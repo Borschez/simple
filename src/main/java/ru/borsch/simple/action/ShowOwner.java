@@ -14,4 +14,9 @@ public class ShowOwner implements ExpressionAction {
     public String getExecutionExpression() {
         return ACTION;
     }
+
+    @Override
+    public String getName() {
+        return "Show Owner";
+    }
 }

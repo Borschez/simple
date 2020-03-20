@@ -1,4 +1,4 @@
-package ru.borsch.simple.service.impl;
+package ru.borsch.simple.service.impl.action;
 
 import ru.borsch.simple.api.ActionContext;
 

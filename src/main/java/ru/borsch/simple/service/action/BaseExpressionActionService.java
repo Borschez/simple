@@ -1,6 +1,6 @@
-package ru.borsch.simple.service;
+package ru.borsch.simple.service.action;
 
-import ru.borsch.simple.model.BaseExpressionAction;
+import ru.borsch.simple.model.action.BaseExpressionAction;
 
 import java.util.List;
 

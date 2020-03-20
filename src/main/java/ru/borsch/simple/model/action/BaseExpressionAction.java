@@ -1,4 +1,4 @@
-package ru.borsch.simple.model;
+package ru.borsch.simple.model.action;
 
 import ru.borsch.simple.api.ExpressionAction;
 

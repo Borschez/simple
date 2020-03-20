@@ -1,7 +1,7 @@
-package ru.borsch.simple.repository;
+package ru.borsch.simple.repository.action;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import ru.borsch.simple.model.BaseExpressionAction;
+import ru.borsch.simple.model.action.BaseExpressionAction;
 
 import java.util.List;
 

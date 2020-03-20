@@ -1,15 +1,11 @@
-package ru.borsch.simple.model;
+package ru.borsch.simple.model.action;
+
+import ru.borsch.simple.model.data.VersionableEntity;
 
 import javax.persistence.*;
 
 @MappedSuperclass
-public class BaseActionEntity {
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(length = 128)
-    private String version;
+public class BaseActionEntity extends VersionableEntity {
 
     @Column
     private Boolean active;
@@ -18,15 +14,6 @@ public class BaseActionEntity {
     private String name;
     @Column(length = 1024)
     private String description;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -42,14 +29,6 @@ public class BaseActionEntity {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
     }
 
     public Boolean getActive() {

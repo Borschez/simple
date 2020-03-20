@@ -1,10 +1,10 @@
-package ru.borsch.simple.service.impl;
+package ru.borsch.simple.service.impl.action;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.borsch.simple.model.BaseExpressionAction;
-import ru.borsch.simple.repository.BaseExpressionActionRepository;
-import ru.borsch.simple.service.BaseExpressionActionService;
+import ru.borsch.simple.model.action.BaseExpressionAction;
+import ru.borsch.simple.repository.action.BaseExpressionActionRepository;
+import ru.borsch.simple.service.action.BaseExpressionActionService;
 
 import javax.transaction.Transactional;
 import java.util.List;

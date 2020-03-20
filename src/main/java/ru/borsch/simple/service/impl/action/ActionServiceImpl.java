@@ -1,9 +1,9 @@
-package ru.borsch.simple.service.impl;
+package ru.borsch.simple.service.impl.action;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.borsch.simple.api.Action;
-import ru.borsch.simple.service.ActionService;
+import ru.borsch.simple.service.action.ActionService;
 
 import java.util.ArrayList;
 import java.util.Collection;
