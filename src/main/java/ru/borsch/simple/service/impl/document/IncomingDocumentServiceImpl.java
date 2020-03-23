@@ -50,4 +50,9 @@ public class IncomingDocumentServiceImpl implements IncomingDocumentService {
     public List<IncomingDocument> findAll() {
         return incomingDocumentRepository.findAll();
     }
+
+    @Override
+    public IncomingDocument save(IncomingDocument entity) {
+        return incomingDocumentRepository.save(entity);
+    }
 }

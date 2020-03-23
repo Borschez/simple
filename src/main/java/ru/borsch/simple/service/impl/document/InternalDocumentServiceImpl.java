@@ -50,4 +50,9 @@ public class InternalDocumentServiceImpl implements InternalDocumentService {
     public List<InternalDocument> findAll() {
         return internalDocumentRepository.findAll();
     }
+
+    @Override
+    public InternalDocument save(InternalDocument entity) {
+        return internalDocumentRepository.save(entity);
+    }
 }

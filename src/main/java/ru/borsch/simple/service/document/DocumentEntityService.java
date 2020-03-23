@@ -12,4 +12,5 @@ public interface DocumentEntityService<T extends DocumentEntity> {
     List<T> findByName(String name);
     List<T> findByState(String state);
     List<T> findAll();
+    T save(T entity);
 }
