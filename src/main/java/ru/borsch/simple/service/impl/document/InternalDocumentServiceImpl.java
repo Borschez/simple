@@ -1,6 +1,8 @@
 package ru.borsch.simple.service.impl.document;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.borsch.simple.model.document.InternalDocument;
 import ru.borsch.simple.repository.document.InternalDocumentRepository;
@@ -22,6 +24,11 @@ public class InternalDocumentServiceImpl implements InternalDocumentService {
     }
 
     @Override
+    public Class getDocumentTypeClass() {
+        return InternalDocument.class;
+    }
+
+    @Override
     public String getDocumentTypeCode() {
         return "internal";
     }
@@ -37,8 +44,8 @@ public class InternalDocumentServiceImpl implements InternalDocumentService {
     }
 
     @Override
-    public List<InternalDocument> findByName(String name) {
-        return internalDocumentRepository.findByName(name);
+    public Page<InternalDocument> findByName(String name, Pageable pageable) {
+        return internalDocumentRepository.findByName(name, pageable);
     }
 
     @Override
@@ -47,8 +54,8 @@ public class InternalDocumentServiceImpl implements InternalDocumentService {
     }
 
     @Override
-    public List<InternalDocument> findAll() {
-        return internalDocumentRepository.findAll();
+    public Page<InternalDocument> findAll(Pageable pageable) {
+        return internalDocumentRepository.findAll(pageable);
     }
 
     @Override

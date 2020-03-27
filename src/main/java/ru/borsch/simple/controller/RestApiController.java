@@ -3,6 +3,8 @@ package ru.borsch.simple.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -75,12 +77,16 @@ public class RestApiController {
     }
 
     @RequestMapping(value = "/documents/{type}", method = RequestMethod.GET)
-    public ResponseEntity<DocumentEntity> getDocumentsByType(@PathVariable("type") String type) {
+    public ResponseEntity<DocumentEntity> getDocumentsByType(@PathVariable("type") String type, @RequestParam String name,
+                                                             @PageableDefault(value = 10, page = 0) Pageable pageable) {
         logger.info("Fetching Documents by Type {}", type);
-
         DocumentEntityService entityService = documentService.getServiceByDocumentType(type);
         if (entityService != null) {
-            return new ResponseEntity(entityService.findAll(), HttpStatus.OK);
+            if (name == null || name.isEmpty()) {
+                return new ResponseEntity(entityService.findAll(pageable).getContent(), HttpStatus.OK);
+            } else if (!name.isEmpty()) {
+                return new ResponseEntity(entityService.findByName(name, pageable).getContent(), HttpStatus.OK);
+            }
         }
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }

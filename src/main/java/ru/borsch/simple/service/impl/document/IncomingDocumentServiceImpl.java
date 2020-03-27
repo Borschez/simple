@@ -1,6 +1,8 @@
 package ru.borsch.simple.service.impl.document;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.borsch.simple.model.document.IncomingDocument;
 import ru.borsch.simple.repository.document.IncomingDocumentRepository;
@@ -22,6 +24,11 @@ public class IncomingDocumentServiceImpl implements IncomingDocumentService {
     }
 
     @Override
+    public Class getDocumentTypeClass() {
+        return IncomingDocument.class;
+    }
+
+    @Override
     public String getDocumentTypeCode() {
         return "incoming";
     }
@@ -37,8 +44,8 @@ public class IncomingDocumentServiceImpl implements IncomingDocumentService {
     }
 
     @Override
-    public List<IncomingDocument> findByName(String name) {
-        return incomingDocumentRepository.findByName(name);
+    public Page<IncomingDocument> findByName(String name, Pageable pageable) {
+        return incomingDocumentRepository.findByName(name, pageable);
     }
 
     @Override
@@ -47,8 +54,8 @@ public class IncomingDocumentServiceImpl implements IncomingDocumentService {
     }
 
     @Override
-    public List<IncomingDocument> findAll() {
-        return incomingDocumentRepository.findAll();
+    public Page<IncomingDocument> findAll(Pageable pageable) {
+        return incomingDocumentRepository.findAll(pageable);
     }
 
     @Override
